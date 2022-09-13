@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32804.467
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tech team audio mixer", "tech team audio mixer\tech team audio mixer.csproj", "{77867AD1-8862-4373-AA0D-70B3A2113823}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "audio mixer", "tech team audio mixer\audio mixer.csproj", "{77867AD1-8862-4373-AA0D-70B3A2113823}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
