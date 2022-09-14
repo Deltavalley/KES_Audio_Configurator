@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.grpTracks = new System.Windows.Forms.GroupBox();
+            this.btnRename = new System.Windows.Forms.Button();
+            this.txtRename = new System.Windows.Forms.TextBox();
             this.btnDuplicate = new System.Windows.Forms.Button();
             this.btnDelAll = new System.Windows.Forms.Button();
             this.btnRemoveItem = new System.Windows.Forms.Button();
@@ -43,8 +45,6 @@
             this.strip = new System.Windows.Forms.StatusStrip();
             this.stripLabelDeltavalley = new System.Windows.Forms.ToolStripStatusLabel();
             this.stripLabelSourceCode = new System.Windows.Forms.ToolStripStatusLabel();
-            this.txtRename = new System.Windows.Forms.TextBox();
-            this.btnRename = new System.Windows.Forms.Button();
             this.grpTracks.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.strip.SuspendLayout();
@@ -66,6 +66,23 @@
             this.grpTracks.TabIndex = 0;
             this.grpTracks.TabStop = false;
             this.grpTracks.Text = "Tracks";
+            // 
+            // btnRename
+            // 
+            this.btnRename.Location = new System.Drawing.Point(225, 179);
+            this.btnRename.Name = "btnRename";
+            this.btnRename.Size = new System.Drawing.Size(126, 23);
+            this.btnRename.TabIndex = 7;
+            this.btnRename.Text = "Rename Item";
+            this.btnRename.UseVisualStyleBackColor = true;
+            this.btnRename.Click += new System.EventHandler(this.btnRename_Click);
+            // 
+            // txtRename
+            // 
+            this.txtRename.Location = new System.Drawing.Point(225, 150);
+            this.txtRename.Name = "txtRename";
+            this.txtRename.Size = new System.Drawing.Size(126, 23);
+            this.txtRename.TabIndex = 6;
             // 
             // btnDuplicate
             // 
@@ -202,23 +219,6 @@
             this.stripLabelSourceCode.Size = new System.Drawing.Size(144, 17);
             this.stripLabelSourceCode.Text = "github.com (copy link)";
             this.stripLabelSourceCode.Click += new System.EventHandler(this.stripLabelSourceCode_Click);
-            // 
-            // txtRename
-            // 
-            this.txtRename.Location = new System.Drawing.Point(225, 150);
-            this.txtRename.Name = "txtRename";
-            this.txtRename.Size = new System.Drawing.Size(126, 23);
-            this.txtRename.TabIndex = 6;
-            // 
-            // btnRename
-            // 
-            this.btnRename.Location = new System.Drawing.Point(225, 179);
-            this.btnRename.Name = "btnRename";
-            this.btnRename.Size = new System.Drawing.Size(126, 23);
-            this.btnRename.TabIndex = 7;
-            this.btnRename.Text = "Rename Item";
-            this.btnRename.UseVisualStyleBackColor = true;
-            this.btnRename.Click += new System.EventHandler(this.btnRename_Click);
             // 
             // Form1
             // 

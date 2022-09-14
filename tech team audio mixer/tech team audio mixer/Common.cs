@@ -1,32 +1,26 @@
 ﻿namespace tech_team_audio_mixer
 {
-    public interface IListBoxable
-    {
-        public string DisplayName { get; set; }
-        public bool renameable { get; }
-    }
-
-    public class AudioFile : IListBoxable
+    public class AudioFile
     {
         public string DisplayName { get; set; }
         public string FileName { get; }
         public string FileExt { get; }
-        public bool renameable { get => true; }
+        public bool Renameable { get; }
 
-        public AudioFile(string displayName, string fileName, string fileExt)
+        //ctor
+        public AudioFile(string displayName, string fileName, string fileExt, bool renameable)
         {
             DisplayName = displayName;
             FileName = fileName;
             FileExt = fileExt;
+            Renameable = renameable;
         }
 
-        public AudioFile(string fileName, string fileExt) : this(fileName, fileName, fileExt) { }
-    }
+        //ctor that assumes DisplayName = FileName
+        public AudioFile(string fileName, string fileExt) : this(fileName, fileName, fileExt, true) { }
 
-    public class AudioPause : IListBoxable
-    {
-        public string DisplayName { get => "---PAUSE---"; set => throw new Exception($"Tried to change name of a pause{Common.errorEnd}"); }
-        public bool renameable { get => true; }
+        //ctor w/ no args --> pause
+        public AudioFile() : this("---PAUSE---", "", "", false) { }
     }
 
     public static class Common

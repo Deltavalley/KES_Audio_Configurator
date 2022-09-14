@@ -1,4 +1,5 @@
 using System.CodeDom;
+using System.Text.Json;
 
 namespace tech_team_audio_mixer
 {
@@ -110,14 +111,14 @@ namespace tech_team_audio_mixer
         {
             Clipboard.SetText("https://github.com/Deltavalley/KES_Audio_Configurator");
 
-            stripLabelSourceCode.ForeColor = Color.FromArgb(255, 0, 100, 0);
+            stripLabelSourceCode.ForeColor = Color.FromArgb(255, 0, 150, 0);
             await Task.Delay(250);
             stripLabelSourceCode.ForeColor = Color.FromArgb(255, 0, 0, 0);
         }
 
         private void btnAddPause_Click(object sender, EventArgs e)
         {
-            lstTracks.Items.Add(new AudioPause());
+            lstTracks.Items.Add(new AudioFile()); //empty ctor --> pause
         }
 
         private void btnRename_Click(object sender, EventArgs e)
@@ -125,14 +126,14 @@ namespace tech_team_audio_mixer
             if (lstTracks.SelectedItem != null && !string.IsNullOrEmpty(txtRename.Text))
             {
                 //we are only ever putting objects that implement IListBoxable into the list box
-                IListBoxable? selectedItem = lstTracks.SelectedItem as IListBoxable;
+                AudioFile? selectedItem = lstTracks.SelectedItem as AudioFile;
                 if (selectedItem == null)
                 {
                     throw new Exception($"Selected item does not implement IListBoxable{Common.errorEnd}");
                 } else
                 {
                     //check we can change this entry in the list
-                    if (selectedItem.renameable)
+                    if (selectedItem.Renameable)
                     {
                         selectedItem.DisplayName = txtRename.Text;
                         txtRename.Text = "";
