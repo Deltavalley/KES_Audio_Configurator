@@ -1,19 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
 
 namespace wpf
 {
     public class AudioFile
     {
+        static readonly Color pauseColor = Color.FromArgb(255, 150, 150, 150);
+
         public string DisplayName { get; set; }
         public string FileName { get; }
         public string FileExt { get; }
         public bool Renameable { get; }
-        public Color DisplayColor { get; }
+        private Color DisplayColor { get; }
+
+        public SolidColorBrush DisplayBrush
+        {
+            get { return new SolidColorBrush(DisplayColor); }
+        }
+
 
         //ctor
         public AudioFile(string displayName, string fileName, string fileExt, bool renameable, Color displayColor)
@@ -22,13 +31,14 @@ namespace wpf
             FileName = fileName;
             FileExt = fileExt;
             Renameable = renameable;
+            DisplayColor = displayColor;
         }
 
         //ctor that assumes DisplayName = FileName
-        public AudioFile(string fileName, string fileExt) : this(fileName, fileName, fileExt, true, Color.Black) { }
+        public AudioFile(string fileName, string fileExt) : this(fileName, fileName, fileExt, true, Color.FromArgb(255,0,0,0)) { }
 
         //ctor w/ no args --> pause
-        public AudioFile() : this("---PAUSE---", "", "", false,Color.Gray) { }
+        public AudioFile() : this("---PAUSE---", "", "", false,pauseColor) { }
     }
 
     public static class Common

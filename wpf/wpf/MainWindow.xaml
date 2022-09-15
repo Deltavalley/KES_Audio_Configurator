@@ -60,7 +60,7 @@
 					<!--i hope we dont have more than 100-->
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding DisplayName}" Foreground="{Binding DisplayColor}"/>
+                            <TextBlock Text="{Binding DisplayName}" Foreground="{Binding DisplayBrush}"/>
                             
                         </DataTemplate>
                     </ListBox.ItemTemplate>
@@ -73,9 +73,9 @@
 					
 					<StackPanel Orientation="Vertical" Grid.Column="1" Margin="3" Grid.Row="0">
 						<Button x:Name="btnAddAudio" Content="Add Audio..." Margin="3" Padding="2" Click="btnAddAudio_Click"/>
-						<Button x:Name="btnAddPause" Content="Add Pause" Margin="3" Padding="2"/>
-						<Button x:Name="btnDuplicate" Content="Duplicate Item" Margin="3" Padding="2"/>
-						<Button x:Name="btnRemove" Content="Remove Item" Margin="3" Padding="2"/>
+						<Button x:Name="btnAddPause" Content="Add Pause" Margin="3" Padding="2" Click="btnAddPause_Click"/>
+						<Button x:Name="btnDuplicate" Content="Duplicate Item" Margin="3" Padding="2" Click="btnDuplicate_Click"/>
+						<Button x:Name="btnRemove" Content="Remove Item" Margin="3" Padding="2" Click="btnRemove_Click"/>
 						<Separator Margin="10,5,10,5"/>
 						<Grid Margin="0"> <!--horizontal grid for textblock and textbox-->
 							<Grid.ColumnDefinitions>
@@ -86,7 +86,7 @@
 							<TextBlock Text="Name:" VerticalAlignment="Center"/>
 							<TextBox x:Name="txtRename" Margin="3" Grid.Column="1"/>
 						</Grid>
-						<Button x:Name="btnRename" Content="Rename Item" Margin="3" Padding="2"/>
+						<Button x:Name="btnRename" Content="Rename Item" Margin="3" Padding="2" Click="btnRename_Click"/>
 					</StackPanel>
 					<StackPanel Grid.Row="1">
 						<Button x:Name="btnDeleteAll" Content="Delete All" Margin="3" Padding="2"/>

@@ -30,7 +30,16 @@ namespace wpf
         public MainWindow()
         {
             InitializeComponent();
-            OfdAudio = new();
+
+            //create the OpenFileDialog
+            OfdAudio = new OpenFileDialog
+            {
+                Filter = @"MP3 Files|*.mp3|All Files|*.*",
+                Multiselect = true,
+                Title = "Import Audio..."
+            };
+
+            //subscribe to the event
             OfdAudio.FileOk += OfdAudio_FileOk;
         }
 
@@ -74,6 +83,36 @@ namespace wpf
             lblGithub.Foreground = new SolidColorBrush(System.Windows.Media.Color.FromArgb(255, 0, 150, 0));
             await Task.Delay(250);
             lblGithub.Foreground = new SolidColorBrush(System.Windows.Media.Color.FromArgb(255, 0, 0, 0));
+        }
+
+        private void btnAddPause_Click(object sender, RoutedEventArgs e)
+        {
+            lstTracks.Items.Add(new AudioFile()); //empty ctor --> pause
+        }
+
+        private void btnDuplicate_Click(object sender, RoutedEventArgs e)
+        {
+            lstTracks.Items.Add(lstTracks.SelectedItem);
+        }
+
+        private void btnRemove_Click(object sender, RoutedEventArgs e)
+        {
+            lstTracks.Items.Remove(lstTracks.SelectedItem);
+        }
+
+        private void btnRename_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtRename.Text)) { return; } //guard clause
+
+            if (lstTracks.SelectedItem is AudioFile)
+            {
+                AudioFile file = (AudioFile)lstTracks.SelectedItem;
+                file.DisplayName = txtRename.Text;
+                txtRename.Text = "";
+            } else
+            {
+                throw new Exception($"Tried to rename an item in the list box that isnt an AudioFile{Common.errorEnd}");
+            }
         }
     }
 }
