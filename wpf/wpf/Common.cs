@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,9 +13,10 @@ namespace wpf
         public string FileName { get; }
         public string FileExt { get; }
         public bool Renameable { get; }
+        public Color DisplayColor { get; }
 
         //ctor
-        public AudioFile(string displayName, string fileName, string fileExt, bool renameable)
+        public AudioFile(string displayName, string fileName, string fileExt, bool renameable, Color displayColor)
         {
             DisplayName = displayName;
             FileName = fileName;
@@ -23,10 +25,10 @@ namespace wpf
         }
 
         //ctor that assumes DisplayName = FileName
-        public AudioFile(string fileName, string fileExt) : this(fileName, fileName, fileExt, true) { }
+        public AudioFile(string fileName, string fileExt) : this(fileName, fileName, fileExt, true, Color.Black) { }
 
         //ctor w/ no args --> pause
-        public AudioFile() : this("---PAUSE---", "", "", false) { }
+        public AudioFile() : this("---PAUSE---", "", "", false,Color.Gray) { }
     }
 
     public static class Common

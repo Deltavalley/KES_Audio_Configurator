@@ -1,7 +1,9 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -63,6 +65,15 @@ namespace wpf
         private void btnAddAudio_Click(object sender, RoutedEventArgs e)
         {
             OfdAudio.ShowDialog();
+        }
+
+        private async void lblGithub_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            //fires when the github textblock is clicked
+            Clipboard.SetText(@"https://github.com/deltavalley/kes_audio_configurator");
+            lblGithub.Foreground = new SolidColorBrush(System.Windows.Media.Color.FromArgb(255, 0, 150, 0));
+            await Task.Delay(250);
+            lblGithub.Foreground = new SolidColorBrush(System.Windows.Media.Color.FromArgb(255, 0, 0, 0));
         }
     }
 }

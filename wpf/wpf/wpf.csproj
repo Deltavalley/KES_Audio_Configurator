@@ -10,6 +10,7 @@
   <ItemGroup>
     <None Remove="deltavalley profile pic.jpg" />
     <None Remove="github.png" />
+    <None Remove="githubIcon.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -17,8 +18,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="github.png" />
-    <Resource Include="Resources\deltavalley profile pic.jpg" />
+    <Resource Include="githubIcon.jpg" />
+    <Resource Include="Resources\deltavalleyIcon.jpg" />
   </ItemGroup>
 
   <ItemGroup>

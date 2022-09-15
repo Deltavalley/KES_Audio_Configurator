@@ -27,12 +27,12 @@
 			<StatusBarItem HorizontalAlignment="Right">
 				<StackPanel Orientation="Horizontal">
 					<StackPanel Orientation="Horizontal" Margin="0,0,15,0">
-						<TextBlock Text="github.com (copy)"/>
-						<Image Source="/github.png" Width="16" Margin="5,0,0,0"/>
+						<TextBlock x:Name="lblGithub" Text="github.com (copy)" MouseLeftButtonDown="lblGithub_MouseLeftButtonDown"/>
+						<Image Width="16" Margin="5,0,0,0" Source="/githubIcon.jpg"/>
 					</StackPanel>
 					<StackPanel Orientation="Horizontal">
 						<TextBlock Text="By Deltavalley"/>
-						<Image Source="/Resources/deltavalley profile pic.jpg" Width="16" Margin="5,0,0,0"/>
+						<Image Source="/Resources/deltavalleyIcon.jpg" Width="16" Margin="5,0,0,0"/>
 					</StackPanel>
 				</StackPanel>
 			</StatusBarItem>
@@ -58,8 +58,13 @@
 
 				<ListBox x:Name="lstTracks" Margin="3">
 					<!--i hope we dont have more than 100-->
-
-				</ListBox>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding DisplayName}" Foreground="{Binding DisplayColor}"/>
+                            
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
 				<Grid Grid.Column="1">
 					<Grid.RowDefinitions>
 						<RowDefinition Height="*"/>

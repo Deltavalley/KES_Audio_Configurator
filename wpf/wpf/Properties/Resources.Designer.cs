@@ -61,22 +61,12 @@ namespace wpf.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static byte[] deltavalley {
+        internal static System.Drawing.Bitmap deltavalleyIcon {
             get {
-                object obj = ResourceManager.GetObject("deltavalley", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] github {
-            get {
-                object obj = ResourceManager.GetObject("github", resourceCulture);
-                return ((byte[])(obj));
+                object obj = ResourceManager.GetObject("deltavalleyIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }
