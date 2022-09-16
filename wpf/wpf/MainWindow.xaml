@@ -7,7 +7,8 @@
 		mc:Ignorable="d"
 		Title="Audio Configurator" Height="450" Width="800"
 		MinWidth="550"
-		MinHeight="440">
+		MinHeight="440"
+        xmlns:dd="urn:gong-wpf-dragdrop">
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="*"/>
@@ -56,7 +57,7 @@
 					<ColumnDefinition Width="2*"/>
 				</Grid.ColumnDefinitions>
 
-				<ListBox x:Name="lstTracks" Margin="3">
+				<ListBox x:Name="lstTracks" Margin="3" dd:DragDrop.IsDragSource="True" dd:DragDrop.IsDropTarget="True">
 					<!--i hope we dont have more than 100-->
                     <ListBox.ItemTemplate>
                         <DataTemplate>
@@ -89,7 +90,7 @@
 						<Button x:Name="btnRename" Content="Rename Item" Margin="3" Padding="2" Click="btnRename_Click"/>
 					</StackPanel>
 					<StackPanel Grid.Row="1">
-						<Button x:Name="btnDeleteAll" Content="Delete All" Margin="3" Padding="2"/>
+						<Button x:Name="btnDeleteAll" Content="Delete All" Margin="3" Padding="2" Click="btnDeleteAll_Click"/>
 					</StackPanel>
 				</Grid>
 			</Grid>

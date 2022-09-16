@@ -18,6 +18,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace wpf
 {
     /// <summary>
@@ -109,9 +110,22 @@ namespace wpf
                 AudioFile file = (AudioFile)lstTracks.SelectedItem;
                 file.DisplayName = txtRename.Text;
                 txtRename.Text = "";
+
+                //cause the listbox to update
+                lstTracks.Items.Refresh();
             } else
             {
                 throw new Exception($"Tried to rename an item in the list box that isnt an AudioFile{Common.errorEnd}");
+            }
+        }
+
+        private void btnDeleteAll_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult r = MessageBox.Show($"Are you sure you want to clear the tracks?{Environment.NewLine}(This action can't be undone.)","Are you sure?",MessageBoxButton.YesNo,MessageBoxImage.Warning);
+        
+            if (r == MessageBoxResult.Yes)
+            {
+                lstTracks.Items.Clear();
             }
         }
     }
