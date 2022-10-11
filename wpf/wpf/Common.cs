@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 
 namespace wpf
 {
+    //forked commit
     public class AudioFile
     {
         static readonly Color pauseColor = Color.FromArgb(255, 150, 150, 150);
@@ -17,6 +19,7 @@ namespace wpf
         public string FileExt { get; }
         public bool Renameable { get; }
         private Color DisplayColor { get; }
+        private bool isForked;
 
         public SolidColorBrush DisplayBrush
         {
@@ -35,7 +38,7 @@ namespace wpf
         }
 
         //ctor that assumes DisplayName = FileName
-        public AudioFile(string fileName, string fileExt) : this(fileName, fileName, fileExt, true, Color.FromArgb(255,0,0,0)) { }
+        public AudioFile(string fileName, string fileExt) : this(fileName, fileName, fileExt, true, Color.FromArgb(255,0,0,0)) { MessageBox.Show(isForked.ToString()); }
 
         //ctor w/ no args --> pause
         public AudioFile() : this("---PAUSE---", "", "", false,pauseColor) { }
