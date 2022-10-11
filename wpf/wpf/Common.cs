@@ -20,6 +20,7 @@ namespace wpf
         public bool Renameable { get; }
         private Color DisplayColor { get; }
 
+        //very important stuff
 
 
         private bool isForked;
