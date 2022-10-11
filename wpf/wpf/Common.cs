@@ -19,7 +19,11 @@ namespace wpf
         public string FileExt { get; }
         public bool Renameable { get; }
         private Color DisplayColor { get; }
+
+
+
         private bool isForked;
+        private bool masterOnMain;
 
         public SolidColorBrush DisplayBrush
         {
